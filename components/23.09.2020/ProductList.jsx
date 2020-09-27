@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Product from "./Product";
 export default class ProductList extends Component {
   renderSanPham = () => {
+    // lay gia tri mang san phm tu component cha truyen vao thong qua thuoc tinh this.props
     let { mangSanPham } = this.props;
     return mangSanPham.map((sp, index) => {
       return (
@@ -22,3 +23,4 @@ export default class ProductList extends Component {
     );
   }
 }
+
