@@ -5,10 +5,9 @@ export default class Product extends Component {
     let { sanPham } = this.props;
     return (
       <div>
-        <div className="container">
           <div className="container">
             <div className="card bg-light">
-              <img clasName="card img-top" src="" alt="Card img" />
+              <img clasName="card img-top" alt="" src={sanPham.hinhAnh} />
               <div className="card-body text-center">
                 <h4 className="card-title text-center">{sanPham.tenSP}</h4>
                 <p className="card-text"></p>
@@ -20,7 +19,6 @@ export default class Product extends Component {
                 </a>
               </div>
             </div>
-          </div>
         </div>
       </div>
     );
