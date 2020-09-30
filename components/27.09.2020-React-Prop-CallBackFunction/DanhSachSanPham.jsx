@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import data from "./data.json";
+import SanPham from "./SanPham";
 export default class DanhSachSanPham extends Component {
   constructor(props) {
     super(props);
@@ -10,19 +11,11 @@ export default class DanhSachSanPham extends Component {
   renderSanPham = () => {
     return data.map((dt, index) => {
       return (
-        <div className="col-4" key={index}>
-          <div className="card">
-            <img className="card-img-top" src={dt.hinhAnh} alt="" />
-            <div className="card-body">
-              <h4 className="card-title">{dt.tenSP}</h4>
-              <p className="card-text">{dt.manHinh}</p>
-              <button className="btn btn-danger" onClick={()=>this.xemChiTiet(dt)}>Index</button>
-            </div>
-          </div>
-        </div>
-      );
+        <SanPham key={index} dt={dt} xemChiTiet={this.xemChiTiet}/>
+      )
     });
   };
+  // Dữ liệu cần lấy ở component DanhSachSanPham => đặt callback function tại DanhSachSanPham
   // Xu ly nut xem chi tiet
   xemChiTiet = (sanPham) =>{
     // Thay doi gia tri phone xemChiTiet
