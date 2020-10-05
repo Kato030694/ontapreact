@@ -17,6 +17,7 @@ export default class DanhSachSanPham extends Component {
   };
   // Dữ liệu cần lấy ở component DanhSachSanPham => đặt callback function tại DanhSachSanPham
   // Xu ly nut xem chi tiet
+  // Dữ liệu lấy tại đầu thì truyền callbackfunction tại đó
   xemChiTiet = (sanPham) =>{
     // Thay doi gia tri phone xemChiTiet
     this.setState({
