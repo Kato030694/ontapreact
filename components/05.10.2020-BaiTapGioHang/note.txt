@@ -1,0 +1,12 @@
+Hiểu được đặt state ở đâu
+Nơi chứa nguồn dữ liệu thay đổi
+Truyền state và Props 
+State gọi lại render setState, props truyền dữ liệu components cha sang con
+Props có 2 cách truyền
+1. Truyền giá trị
+2. Truyền sự kiện (Xóa, tăng giảm số  lượng)
+
+Nơi chứa nguồn dữ liệu render lại và nút xử lý, đặt state tại đó. sự kiện xử lý thì 
+đặt components tại đó
+
+Đặt callbackfunction tại đây.

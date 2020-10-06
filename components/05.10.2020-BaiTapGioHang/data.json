@@ -1,6 +1,6 @@
 [
   {
-    "maSP": 1,
+    "maSP": "VL",
     "tenSP": "VinSmart Live",
     "manHinh": "AMOLED, 6.2\", Full HD+",
     "heDieuHanh": "Android 9.0 (Pie)",
@@ -13,7 +13,7 @@
   },
 
   {
-    "maSP": 2,
+    "maSP": "M16",
     "tenSP": "Meizu 16Xs",
     "manHinh": "AMOLED, FHD+ 2232 x 1080 pixels",
     "heDieuHanh": "Android 9.0 (Pie); Flyme",
@@ -26,7 +26,7 @@
   },
 
   {
-    "maSP": 3,
+    "maSP": "IPx",
     "tenSP": "Iphone XS Max",
     "manHinh": "OLED, 6.5\", 1242 x 2688 Pixels",
     "heDieuHanh": "iOS 12",
