@@ -10,3 +10,7 @@ Nơi chứa nguồn dữ liệu render lại và nút xử lý, đặt state t�
 đặt components tại đó
 
 Đặt callbackfunction tại đây.
+Chon components chua cac du lieu thay doi (Rerender)
+BaiTapGioHang chua cac du lieu gio hang, model gio hang, them nguon xu ly de thay doi du lieu
+
+Xac dinh nguon (components) chua cac du lieu thay doi, chua xu ly. 
