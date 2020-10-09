@@ -10,10 +10,11 @@ class ModalGioHangRedux extends Component {
         <tr key={index}>
           <td>{spGH.maSP}</td>
           <td>{spGH.tenSP}</td>
-          <td>{<img src={spGH.hinhAnh} width={75} height={75} />}</td>
-          <td>{spGH.giaBan.toLocaleString()}</td>
+          <td>{<img src={spGH.hinhAnh} width={75} height={75} alt={spGH.hinhAnh}/>}</td>
+          <td>{spGH.giaBan}</td>
           <td>{spGH.soLuong}</td>
-          <td>{(spGH.giaBan * spGH.soLuong).toLocaleString()}</td>
+          <td>{spGH.giaBan * spGH.soLuong}</td>
+          <td><button className="btn btn-danger" onClick={()=>{this.props.xoaGioHangIndex(index)}}>Delete</button></td>
         </tr>
       );
     });
@@ -40,11 +41,26 @@ class ModalGioHangRedux extends Component {
     );
   }
 }
+// tao ra gia tri
 const mapStateToProps = (state) => {
   //state: la store tong, => truy xuat den gio hang GioHangReducer
   //=> bien state tren gioHangReducer
+  // Tra ve 1 object thanh props cua components nay
   return {
     gioHang: state.GioHangReducer.gioHang, //=> Tao ra 1 props cua component ModalGioHangRedux
   };
 };
-export default connect(mapStateToProps, null)(ModalGioHangRedux);
+// Tao ra 1 nut xu ly nao do
+const mapDishpatchToProps = (dispatch) =>{
+  return {
+    xoaGioHangIndex: (index) =>{
+      const action = {
+        type: 'XOA_GIO_HANG',
+        index
+      }
+      // Dua action len reducer
+      dispatch(action);
+    }
+  }
+}
+export default connect(mapStateToProps, mapDishpatchToProps)(ModalGioHangRedux);

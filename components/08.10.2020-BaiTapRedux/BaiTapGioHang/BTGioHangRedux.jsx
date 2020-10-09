@@ -6,7 +6,7 @@ export default class BTGioHangRedux extends Component {
     render() {
         return (
             <div className="container">
-                <h3 className="text-danger text-left">Bai Tap Redux</h3>
+                <h3 className="text-danger text-center">Bai Tap Redux</h3>
                <ModalGioHangRedux /> 
                <DanhSachSanPhamRedux />
             </div>
