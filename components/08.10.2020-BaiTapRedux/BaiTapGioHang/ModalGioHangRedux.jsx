@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-// Import thu vien ket noi Redux (connect ham ket noi reactComponent va redux Store)
+// Import thu vien ket noi Redux (connect ham ket noi reactComponent - reduxStore)
 import { connect } from "react-redux";
 class ModalGioHangRedux extends Component {
   renderGioHang = () => {
@@ -21,8 +21,22 @@ class ModalGioHangRedux extends Component {
             }
           </td>
           <td>{spGH.giaBan}</td>
-          <td>{spGH.soLuong}</td>
-          <td>{spGH.giaBan * spGH.soLuong}</td>
+          <td>
+            <button
+              className="btn-success"
+              onClick={() => this.props.tangGiamSoLuong(index, false)}
+            >
+              -
+            </button>
+            {spGH.soLuong}{" "}
+            <button
+              className="btn-success"
+              onClick={() => this.props.tangGiamSoLuong(index, true)}
+            >
+              +
+            </button>
+          </td>
+          <td>{(spGH.giaBan * spGH.soLuong).toLocaleString()}</td>
           <td>
             <button
               className="btn btn-danger"
@@ -46,6 +60,7 @@ class ModalGioHangRedux extends Component {
     });
   };
   render() {
+    // this.props.gioHang la thuoc tinh nhan tu redux
     return (
       <div className="container">
         <table className="table">
@@ -60,6 +75,15 @@ class ModalGioHangRedux extends Component {
             </tr>
           </thead>
           <tbody>{this.renderGioHang()}</tbody>
+          <tfoot>
+            <td colSpan="5"></td>
+            <td>Tong Tien</td>
+            <td>
+              {this.props.gioHang.reduce((tongTien, spGioHang, index) => {
+                return (tongTien += spGioHang.soLuong * spGioHang.giaBan);
+              }, 0)}
+            </td>
+          </tfoot>
         </table>
       </div>
     );
@@ -68,7 +92,7 @@ class ModalGioHangRedux extends Component {
 // tao ra gia tri
 const mapStateToProps = (state) => {
   //state: la store tong, => truy xuat den gio hang GioHangReducer
-  //=> bien state tren gioHangReducer
+  //=> bien state(la store tong) tren gioHangReducer
   // Tra ve 1 object thanh props cua components nay
   return {
     gioHang: state.GioHangReducer.gioHang, //=> Tao ra 1 props cua component ModalGioHangRedux
@@ -89,6 +113,15 @@ const mapDishpatchToProps = (dispatch) => {
       const action = {
         type: "XOA_GIO_HANG_MSP",
         maSP,
+      };
+      dispatch(action);
+    },
+    // chua nut xu ly
+    tangGiamSoLuong: (index, tangGiam) => {
+      const action = {
+        type: "TANG_GIAM_SO_LUONG",
+        index,
+        tangGiam,
       };
       dispatch(action);
     },
