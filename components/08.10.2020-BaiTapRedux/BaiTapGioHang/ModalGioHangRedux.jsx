@@ -10,11 +10,37 @@ class ModalGioHangRedux extends Component {
         <tr key={index}>
           <td>{spGH.maSP}</td>
           <td>{spGH.tenSP}</td>
-          <td>{<img src={spGH.hinhAnh} width={75} height={75} alt={spGH.hinhAnh}/>}</td>
+          <td>
+            {
+              <img
+                src={spGH.hinhAnh}
+                width={75}
+                height={75}
+                alt={spGH.hinhAnh}
+              />
+            }
+          </td>
           <td>{spGH.giaBan}</td>
           <td>{spGH.soLuong}</td>
           <td>{spGH.giaBan * spGH.soLuong}</td>
-          <td><button className="btn btn-danger" onClick={()=>{this.props.xoaGioHangIndex(index)}}>Delete</button></td>
+          <td>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                this.props.xoaGioHangIndex(index);
+              }}
+            >
+              Delete
+            </button>
+            <button
+              className="btn btn-success"
+              onClick={() => {
+                this.props.xoaGioHangMaSP(spGH.maSP);
+              }}
+            >
+              Xoa Ma SP
+            </button>
+          </td>
         </tr>
       );
     });
@@ -31,11 +57,9 @@ class ModalGioHangRedux extends Component {
               <th>Gia Ban</th>
               <th>So Luong</th>
               <th>Tong Tien</th>
-            </tr></thead>
-            <tbody>
-                {this.renderGioHang()}
-            </tbody>
-          
+            </tr>
+          </thead>
+          <tbody>{this.renderGioHang()}</tbody>
         </table>
       </div>
     );
@@ -51,16 +75,23 @@ const mapStateToProps = (state) => {
   };
 };
 // Tao ra 1 nut xu ly nao do
-const mapDishpatchToProps = (dispatch) =>{
+const mapDishpatchToProps = (dispatch) => {
   return {
-    xoaGioHangIndex: (index) =>{
+    xoaGioHangIndex: (index) => {
       const action = {
-        type: 'XOA_GIO_HANG',
-        index
-      }
+        type: "XOA_GIO_HANG",
+        index,
+      };
       // Dua action len reducer
       dispatch(action);
-    }
-  }
-}
+    },
+    xoaGioHangMaSP: (maSP) => {
+      const action = {
+        type: "XOA_GIO_HANG_MSP",
+        maSP,
+      };
+      dispatch(action);
+    },
+  };
+};
 export default connect(mapStateToProps, mapDishpatchToProps)(ModalGioHangRedux);

@@ -1,0 +1,7 @@
+Tạo 1 store chứa dữ liệu
+Store chứa tất cả các state từ components thay đổi state chỉ cần truy cập tới store để đổi
+
+Muốn thay đổi dữ liệu => gửi lên store 1 nguồn dữ liệu thay đổi cập nhật dữ liệu.
+
+Cài thư viện redux
+ và cài thư viện react-redux để kết nối với nhau
