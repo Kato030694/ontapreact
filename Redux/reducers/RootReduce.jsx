@@ -6,3 +6,4 @@ export const rootReducer = combineReducers({
     // GioHangReducer la 1 cai ham, tra ve bien [...state]
     GioHangReducer: GioHangReducer
 })
+
