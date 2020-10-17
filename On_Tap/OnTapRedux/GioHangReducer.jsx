@@ -11,7 +11,7 @@ const stateGioHang = {
   ],
 };
 export const GioHangReducer = (state = stateGioHang, action) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case "THEM_GIO_HANG": {
       // Xu ly logic them gio hang tai day

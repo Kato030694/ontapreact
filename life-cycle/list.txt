@@ -1,0 +1,8 @@
+    Creation                    Update
+constructor()               componentWillReceiveProps()
+componentWillMount()        shouldComponentUpdate()
+render()                    componentWillUpdate()
+componentDidMount()         render()
+                            componentDidUpdate()
+Chỉ class component mới có lifecycle còn function component thì không có
+Quản lý render component, khi nào nó cần thay đổi, để tăng hiệu suất website lên. 
